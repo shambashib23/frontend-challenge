@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-
+import { useEffect, useRef } from 'react';
+import { atom, useAtom } from 'jotai';
+const intersectingAtom = atom(false);
 
 const useIntersectionObserver = (options) => {
-    const [intersecting, setIntersecting] = useState(false);
+    const [intersecting, setIntersecting] = useAtom(intersectingAtom);
     const targetRef = useRef(null);
 
     useEffect(() => {
